@@ -10,7 +10,6 @@ const App = () => {
 
   const getVideoId = async () => {
 
-    return "Gfr50f6ZBvo"
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     const url = new URL(tab.url);
     return new URLSearchParams(url.search).get("v");
@@ -21,7 +20,7 @@ const App = () => {
   const videoId = await getVideoId();
   if (!videoId) return;
 
-  const init = await fetch("http://127.0.0.1:8000/init", {
+  const init = await fetch("https://youtube-chatbot-jv68.onrender.com/init", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ video_id: videoId }),
@@ -51,7 +50,7 @@ useEffect(() => {
 
     const videoId = await getVideoId();
 
-    const res = await fetch("http://127.0.0.1:8000/chat", {
+    const res = await fetch("https://youtube-chatbot-jv68.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ video_id: videoId, question: input }),
