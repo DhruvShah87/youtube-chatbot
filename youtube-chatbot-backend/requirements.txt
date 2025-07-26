@@ -1,0 +1,10 @@
+youtube-transcript-api
+fastapi
+uvicorn
+python-dotenv
+langchain-community 
+langchain-google-genai 
+faiss-cpu 
+tiktoken 
+python-dotenv 
+google-ai-generativelanguage
