@@ -15,6 +15,9 @@ import threading
 if threading.current_thread() is not threading.main_thread():
     asyncio.set_event_loop(asyncio.new_event_loop())
 
+port = int(os.environ.get("PORT", 8000))  # fallback to 8000
+app.run(host="0.0.0.0", port=port)
+
 
 load_dotenv()
 
