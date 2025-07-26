@@ -27,9 +27,6 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-port = int(os.environ.get("PORT", 8000))  # fallback to 8000
-app.run(host="0.0.0.0", port=port)
-
 @app.post("/init")
 async def init_video(data: dict):
     video_id = data["video_id"]
